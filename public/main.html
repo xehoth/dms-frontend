@@ -21,14 +21,16 @@
     <v-app>
       <v-app-bar app color="white" height="100">
         <v-avatar class="mr-3" color="grey lighten-5" size="70">
-          <v-img contain max-height="70%" src="vuetify-logo-dark.png"></v-img>
+          <v-img contain max-height="50%" src="vuetify-logo-dark.png"></v-img>
         </v-avatar>
 
         <v-toolbar-title class="font-weight-black headline">
-          宿舍管理系统
+          宿舍管理
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn large color="success" style="align-self: right;" :href="mainUrl + '/login'">登录
+        <v-btn color="warning" style="align-self: right;margin-right:5px;" :href="mainUrl">试用
+        </v-btn>
+        <v-btn color="success" style="align-self: right;" :href="mainUrl + '/login'">登录
         </v-btn>
       </v-app-bar>
 
@@ -180,10 +182,10 @@
             },
           ],
           stats: [
-            ['24k', 'Github Stars'],
-            ['330+', 'Releases'],
-            ['1m', 'Downloads/mo'],
-            ['5m', 'Total Downloads'],
+            ['33+', 'Commits'],
+            ['5+', 'Releases'],
+            ['30+', 'Test Users'],
+            ['3+', 'Solving Points'],
           ],
           mainUrl: "http://10.19.75.206:8080/#"
         }
