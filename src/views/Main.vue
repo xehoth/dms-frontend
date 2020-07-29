@@ -43,9 +43,8 @@ export default class Main extends Vue {
   items = [
     { icon: "home", text: "首页", link: "/" },
     { icon: "menu_book", text: "宿舍生活指南", link: "/manual" },
-    { icon: "account_box", text: "我的宿舍", link: "/dorm" },
     { icon: "assignment", text: "问卷填写", link: "/form" },
-    { icon: "chat", text: "TODO", link: "/chat" },
+    { icon: "account_box", text: "我的宿舍", link: "/dorm" },
     // menu_book
     // assignment
     // account_box
@@ -78,7 +77,7 @@ export default class Main extends Vue {
   created() {
     this.$vuetify.theme.dark = false;
     // localStorage.setItem("student", this.student);
-    this.check();
+    // this.check();
   }
 }
 </script>

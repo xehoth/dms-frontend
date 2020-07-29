@@ -226,7 +226,7 @@ export default class Home extends Vue {
   }
 
   created() {
-    console.log(localStorage.getItem("student"));
+    // console.log(localStorage.getItem("student"));
   }
 }
 </script>

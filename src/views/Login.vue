@@ -1,7 +1,12 @@
 <template>
   <div>
     <div class="background">
-      <img :src="require('../assets/bg1.png')" width="100%" height="100%" alt />
+      <v-img
+        :src="require('../assets/bg1.png')"
+        :min-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
+        :max-height="'100vh'"
+        alt
+      />
     </div>
     <div>
       <v-app id="inspire">

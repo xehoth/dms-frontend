@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>宿舍管理系统</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.loli.net/css?family=Roboto:100,300,400,500,700,900' rel="stylesheet">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet"> -->
+  <link href="https://cdnjs.loli.net/ajax/libs/MaterialDesign-Webfont/4.0.96/css/materialdesignicons.min.css"
+    rel="stylesheet">
+
+  <!-- <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet"> -->
+  <link href="https://cdnjs.loli.net/ajax/libs/vuetify/2.3.6/vuetify.min.css" rel="stylesheet">
+
+  <!-- <link rel="shortcut icon" href="https://cdn.vuetifyjs.com/images/logos/favicon.ico"> -->
+</head>
+
+<body>
+  <div id="app">
+    <v-app>
+      <v-app-bar app color="white" height="100">
+        <v-avatar class="mr-3" color="grey lighten-5" size="70">
+          <v-img contain max-height="70%" src="vuetify-logo-dark.png"></v-img>
+        </v-avatar>
+
+        <v-toolbar-title class="font-weight-black headline">
+          宿舍管理系统
+        </v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn large color="success" style="align-self: right;" :href="mainUrl + '/login'">登录
+        </v-btn>
+      </v-app-bar>
+
+      <v-content>
+        <section id="hero">
+          <v-row no-gutters>
+            <v-img :max-height="'120vh'" :min-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
+              src="back_bg.png">
+              <!-- https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80 -->
+              <v-theme-provider dark>
+                <v-container fill-height>
+                  <v-row align="center" class="white--text mx-auto" justify="center">
+                    <v-col class="white--text text-center" cols="12" tag="h1" style="filter:brightness(3067%)">
+                      <span :class="[$vuetify.breakpoint.smAndDown ? 'display-1' : 'display-2']"
+                        class="font-weight-normal">
+                        上海科技大学
+                      </span>
+
+                      <br>
+
+                      <span :class="[$vuetify.breakpoint.smAndDown ? 'display-3': 'display-4']"
+                        class="font-weight-black">
+                        宿舍管理系统
+                      </span>
+
+                    </v-col>
+
+                    <v-btn class="align-self-end" fab outlined @click="$vuetify.goTo('#about-me')">
+                      <v-icon>mdi-chevron-double-down</v-icon>
+                    </v-btn>
+                  </v-row>
+                </v-container>
+              </v-theme-provider>
+            </v-img>
+          </v-row>
+        </section>
+
+        <section id="about-me">
+          <div class="py-12"></div>
+
+          <v-container class="text-center">
+            <h2 class="display-2 font-weight-bold mb-3">关于此系统</h2>
+
+            <v-responsive class="mx-auto mb-8" width="56">
+              <v-divider class="mb-1"></v-divider>
+
+              <v-divider></v-divider>
+            </v-responsive>
+
+            <v-responsive class="mx-auto title font-weight-light mb-8" max-width="720">
+
+            </v-responsive>
+            <div></div>
+
+            <v-btn color="blue" @click="$vuetify.goTo('#features')" outlined large>
+              <span class="blue--text text--darken-1 font-weight-bold">
+                FEATURES
+              </span>
+            </v-btn>
+          </v-container>
+
+          <div class="py-12"></div>
+        </section>
+
+        <section id="features" class="grey lighten-3">
+          <div class="py-12"></div>
+
+          <v-container class="text-center">
+            <h2 class="display-2 font-weight-bold mb-3">FEATURES</h2>
+
+            <v-responsive class="mx-auto mb-12" width="56">
+              <v-divider class="mb-1"></v-divider>
+
+              <v-divider></v-divider>
+            </v-responsive>
+
+            <v-row>
+              <v-col v-for="({ icon, title, text }, i) in features" :key="i" cols="12" md="4">
+                <v-card class="py-12 px-4" color="grey lighten-5" flat>
+                  <v-theme-provider dark>
+                    <div>
+                      <v-avatar color="primary" size="88">
+                        <v-icon large v-text="icon"></v-icon>
+                      </v-avatar>
+                    </div>
+                  </v-theme-provider>
+
+                  <v-card-title class="justify-center font-weight-black text-uppercase" v-text="title"></v-card-title>
+
+                  <v-card-text class="subtitle-1" v-text="text[0]">
+                  </v-card-text>
+                  <v-card-text class="subtitle-1" v-text="text[1]" style="margin-top:-30px;">
+                  </v-card-text>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+
+          <div class="py-12"></div>
+        </section>
+
+        <section id="stats">
+          <v-parallax :height="$vuetify.breakpoint.smAndDown ? 700 : 500" src="bg2.jpg">
+            <v-container fill-height>
+              <v-row class="mx-auto">
+                <v-col v-for="[value, title] of stats" :key="title" cols="12" md="3">
+                  <div class="text-center">
+                    <div class="display-3 font-weight-black mb-4" v-text="value"></div>
+
+                    <div class="title font-weight-regular text-uppercase" v-text="title"></div>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-parallax>
+        </section>
+      </v-content>
+
+      <v-footer class="justify-center" color="#292929" height="100">
+        <div class="title font-weight-light grey--text text--lighten-1 text-center">
+          &copy; {{ (new Date()).getFullYear() }} — Made with 💜 by DT Group 5
+        </div>
+      </v-footer>
+    </v-app>
+  </div>
+  <script src="https://cdnjs.loli.net/ajax/libs/vue/2.6.9/vue.min.js"></script>
+  <script src="https://cdnjs.loli.net/ajax/libs/vuetify/2.3.6/vuetify.min.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data() {
+        return {
+          features: [
+            {
+              icon: 'mdi-account-group-outline',
+              title: '匹配生活习惯',
+              text: ['准确科学的生活习惯调查问卷', '按照生活习惯自动匹配最优舍友']
+            },
+            {
+              icon: 'mdi-shield-outline',
+              title: '新生宿舍指南',
+              text: ['学校与学生共同完成', '帮助新生快速适应大学生活'],
+            },
+            {
+              icon: 'mdi-update',
+              title: '快速反馈渠道',
+              text: ['统一便捷的沟通反馈方式', '利于尽早化解矛盾，方便学校管理'],
+            },
+          ],
+          stats: [
+            ['24k', 'Github Stars'],
+            ['330+', 'Releases'],
+            ['1m', 'Downloads/mo'],
+            ['5m', 'Total Downloads'],
+          ],
+          mainUrl: "http://10.19.75.206:8080/#"
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
