@@ -18,17 +18,17 @@
         @change="checkRadio1"
       ></v-checkbox>
       <v-card-actions>
-        <v-btn color="green" @click="save" text>保存</v-btn>
+        <!-- <v-btn color="green" @click="save" text>保存</v-btn> -->
         <v-btn color="blue" @click="$vuetify.goTo('#preproblem2')" text>下一题</v-btn>
       </v-card-actions>
     </v-card>
     <v-card class="mx-auto" style="margin-top:10px;margin-bottom:10px;" id="preproblem2">
       <v-card-title>下列同学最接近你的是：</v-card-title>
       <v-radio-group v-model="radioGroup[2]" style="margin-left:10px;">
-        <v-radio v-for="n in 4" :key="n" :label="radioData[2][n]" :value="n"></v-radio>
+        <v-radio v-for="n in 4" :key="'r' + n" :label="radioData[2][n]" :value="n"></v-radio>
       </v-radio-group>
       <v-card-actions>
-        <v-btn color="green" @click="save" text>保存</v-btn>
+        <!-- <v-btn color="green" @click="save" text>保存</v-btn> -->
         <v-btn color="blue" @click="$vuetify.goTo('#problem0')" text>下一题</v-btn>
       </v-card-actions>
     </v-card>
@@ -36,17 +36,22 @@
       v-for="(items, index) in oceanData"
       class="mx-auto"
       style="margin-top:10px;margin-bottom:10px;"
-      :key="items.title"
+      :key="'problem'+index"
       :id="'problem'+index"
     >
       <v-card-title>{{ items.title }}</v-card-title>
       <v-radio-group v-model="items.res" style="margin-left:10px;">
-        <v-radio v-for="n in items.data.length" :key="n - 1" :label="items.data[n - 1]" :value="n"></v-radio>
+        <v-radio
+          v-for="n in items.data.length"
+          :key="index.toString() + 'pr' + (n - 1).toString()"
+          :label="items.data[n - 1]"
+          :value="n"
+        ></v-radio>
       </v-radio-group>
       <v-card-actions>
-        <v-btn color="green" @click="save" text>保存</v-btn>
+        <!-- <v-btn color="green" @click="save" text>保存</v-btn> -->
         <v-btn
-          v-if="index != oceanData.length - 1"
+          v-show="index != oceanData.length - 1"
           color="blue"
           @click="$vuetify.goTo('#problem' + (index + 1).toString())"
           text
@@ -108,17 +113,17 @@ export default class Form extends Vue {
     [],
     [
       "",
-      "常常睡得很晚，深夜时精力充沛，十分亢奋，喜欢和朋友一起开黑，每天都玩到尽兴。",
-      "希望早睡，但他有时会因为 ddl 或其他任务而不得不晚睡，但他依然有熬夜的底线，并且不会打扰他人。",
-      "睡觉时间不规律，他夜里喜欢自娱自乐（追番或者自己玩玩游戏等等）。",
-      "同学习惯于晚睡，他每天不论忙碌与否，总是到凌晨睡觉。",
-      "同学作息规律，十分健康。他喜欢早睡早起，不论学业忙碌还是空闲，都能按时睡觉，按时起床。",
+      "我常常睡得很晚，深夜时精力充沛，十分亢奋，喜欢和朋友一起开黑，每天都玩到尽兴。",
+      "我希望早睡，有时会因为 ddl 或其他任务而不得不晚睡，但依然有熬夜的底线，并且不会打扰他人。",
+      "我睡觉时间不规律，夜里喜欢自娱自乐（追番或者自己玩玩游戏等等）。",
+      "我习惯于晚睡，每天不论忙碌与否，总是到凌晨睡觉。",
+      "我作息规律，十分健康。喜欢早睡早起，不论学业忙碌还是空闲，都能按时睡觉，按时起床。",
       "我夜里喜欢去串门离开寝室到别处玩，很晚才回到宿舍。",
     ],
     [
       "",
-      "每天午睡，且要关灯拉窗帘，最好舍友还不要讲话",
-      "躺床上睡就行，舍友能保持安静就好",
+      "我每天午睡，且要关灯拉窗帘，最好舍友还不要讲话",
+      "我躺床上睡就行，舍友能保持安静就好",
       "午休不太重要，有时休息一下",
       "午睡是老年人的行为，年轻人从不午睡",
     ],

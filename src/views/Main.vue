@@ -42,7 +42,7 @@ export default class Main extends Vue {
 
   items = [
     // { icon: "home", text: "首页", link: "/" },
-    { icon: "menu_book", text: "宿舍生活指南", link: "/" },
+    { icon: "menu_book", text: "宿舍指南", link: "/" },
     // { icon: "menu_book", text: "宿舍生活指南", link: "/manual" },
     { icon: "assignment", text: "问卷填写", link: "/form" },
     { icon: "account_box", text: "我的宿舍", link: "/dorm" },
